@@ -2,7 +2,13 @@ class ProductsController < ApplicationController
   before_filter :authorize
 
   def index
-    render json: Product.all.to_json
+    products = Product.page(params[:page]).per(1)
+    render json: {
+      collection: products,
+      limit: products.limit_value.try(:to_i),
+      offset: products.offset_value.try(:to_i),
+      total_count: products.total_count.try(:to_i)
+    }.to_json
   end
 
   def show
