@@ -33,6 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 gem 'activeresource'
 gem 'kaminari'
+gem 'browet', :path=>'~/www/browet-gem'
 
 
 group :development, :test do
